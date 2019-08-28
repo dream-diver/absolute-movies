@@ -1,0 +1,61 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-admob-free": {
+      "ADMOB_APP_ID": "ca-app-pub-2387490687776151~80XXXXXXX9",
+      "PACKAGE_NAME": "app.dreamdiver.shobkhobor"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "app.dreamdiver.shobkhobor"
+    },
+    "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "app.dreamdiver.shobkhobor"
+    },
+    "cordova-plugin-globalization": {
+      "PACKAGE_NAME": "app.dreamdiver.shobkhobor"
+    },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "app.dreamdiver.shobkhobor"
+    },
+    "cordova-plugin-ionic-keyboard": {
+      "PACKAGE_NAME": "app.dreamdiver.shobkhobor"
+    },
+    "cordova-plugin-ionic-webview": {
+      "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+",
+      "PACKAGE_NAME": "app.dreamdiver.shobkhobor"
+    },
+    "cordova-plugin-nativegeocoder": {
+      "PACKAGE_NAME": "app.dreamdiver.shobkhobor"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "app.dreamdiver.shobkhobor"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "app.dreamdiver.shobkhobor"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "app.dreamdiver.shobkhobor"
+    },
+    "onesignal-cordova-plugin": {
+      "PACKAGE_NAME": "app.dreamdiver.shobkhobor"
+    },
+    "cordova-plugin-x-toast": {
+      "PACKAGE_NAME": "app.dreamdiver.shobkhobor"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-admob-sdk": {
+      "PLAY_SERVICES_VERSION": "11.0.4",
+      "PACKAGE_NAME": "app.dreamdiver.shobkhobor"
+    },
+    "cordova-promise-polyfill": {
+      "PACKAGE_NAME": "app.dreamdiver.shobkhobor"
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "name": "Shob-Khobor",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

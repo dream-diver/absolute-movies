@@ -1,0 +1,58 @@
+// App Styles
+// ----------------------------------------------------------------------------
+// Put style rules here that you want to apply to the entire application. These 
+// styles are for the entire app and not just one component. Additionally, this 
+// file can hold Sass mixins, functions, and placeholder classes to be imported 
+// and used throughout the application.
+
+.loader{
+    color:#f83600;
+    font-weight: 500;
+    font-size: 1em;
+    --spinner-color: #fcb13c;
+    --background: rgba(255, 255, 239, 1);
+    --width: 100px;
+    --height: 100px;
+    --min-height: 120px;
+    --min-width: 120px;
+  }
+  
+
+.sidemenu-logo {
+  margin: 20px auto;
+}
+
+.sidemenu-ion-content{
+  background: #fe8c00;  /* fallback for old browsers */ 
+  background: -webkit-linear-gradient(to right, #f83600, #fe8c00);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #f83600, #fe8c00); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  height: 100%;
+}
+
+
+
+.sidemenu-ion-list{
+  background: none !important;
+}
+
+.sidemenu-ion-footer{
+  text-align: end;
+  background: #fe8c00;  /* fallback for old browsers */ 
+  background: -webkit-linear-gradient(to right, #f83600, #fe8c00);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #f83600, #fe8c00); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.sidemenu-ion-footer ion-label{
+  font-size: .7em;
+}
+
+.sidemenu-ion-list-item{
+  background: none !important;
+  --ion-background-color: none;
+}
+
+.copyright-text{
+  padding-right: 7px;
+  font-family: monospace;
+  color: darkgray;
+}

@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+        <img src="../../../assets/img/logo-200.png" height="35">
+      </ion-buttons>
+    <ion-title>বাংলাদেশী লাইভ টিভি</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <p>
+    <ion-chip color="dark" expand="full"
+    *ngFor="let c of tvChannels" (click)=goToChannel(c.url)>
+        <ion-avatar>
+          <img src='{{"../../../assets/img/tv-logos/" + c.logo}}'>
+        </ion-avatar>
+        <ion-label color="success">{{c.channelName}}</ion-label>
+      </ion-chip>
+  </p>
+</ion-content>

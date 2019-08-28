@@ -1,0 +1,618 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+      <img src="../../../assets/img/logo-200.png" height="35">
+    </ion-buttons>
+    
+    <ion-title>
+      <ion-label color="light">
+        <p><b>{{nowTime}}</b></p>
+      </ion-label>
+    </ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<!-- Default Segment -->
+<ion-segment no-padding value="home" [(ngModel)]="category" scrollable id="segment">
+  <ion-segment-button no-padding value="home" (click)="home()" id="0">
+    <ion-label color="dark">প্রথম পাতা</ion-label>
+  </ion-segment-button>
+  <ion-segment-button no-padding value="videos" (click)="videos()" id="1">
+    <ion-label color="dark">ভিডিও নিউজ</ion-label>
+  </ion-segment-button>
+  <ion-segment-button no-padding value="bangladesh" (click)="bangladesh()" id="2">
+    <ion-label color="dark">বাংলাদেশ</ion-label>
+  </ion-segment-button>
+  <ion-segment-button no-padding value="international" (click)="international()" id="3">
+    <ion-label color="dark">আন্তর্জাতিক</ion-label>
+  </ion-segment-button>
+  <ion-segment-button no-padding value="economy" (click)="economy()" id="4">
+    <ion-label color="dark">অর্থনীতি</ion-label>
+  </ion-segment-button>
+  <ion-segment-button no-padding value="sports" (click)="sports()" id="5">
+    <ion-label color="dark">খেলা</ion-label>
+  </ion-segment-button>
+  <ion-segment-button no-padding value="entertainment" (click)="entertainment()" id="6">
+    <ion-label color="dark">বিনোদন</ion-label>
+  </ion-segment-button>
+  <ion-segment-button no-padding value="tech" (click)="tech()" id="7">
+    <ion-label color="dark">বিজ্ঞান-প্রযুক্তি</ion-label>
+  </ion-segment-button>
+  <ion-segment-button no-padding value="lifeStyle" (click)="lifeStyle()" id="8">
+    <ion-label color="dark">জীবনযাপন</ion-label>
+  </ion-segment-button>
+  <ion-segment-button no-padding value="education" (click)="education()" id="9">
+    <ion-label color="dark">শিক্ষা</ion-label>
+  </ion-segment-button>
+  <ion-segment-button no-padding value="crime" (click)="crime()" id="10">
+    <ion-label color="dark">আপরাধ জগত</ion-label>
+  </ion-segment-button>
+  <ion-segment-button no-padding value="culture" (click)="culture()" id="11">
+    <ion-label color="dark">শিল্প-সাহিত্য</ion-label>
+  </ion-segment-button>
+  <ion-segment-button no-padding value="vivid" (click)="vivid()" id="12">
+    <ion-label color="dark">বিচিত্র</ion-label>
+  </ion-segment-button>
+  <ion-segment-button no-padding value="business" (click)="business()" id="13">
+    <ion-label color="dark">ব্যবসা-বাণিজ্য</ion-label>
+  </ion-segment-button>
+  <ion-segment-button no-padding value="horoscope" (click)="horoscope()" id="14">
+    <ion-label color="dark">রাশিফল</ion-label>
+  </ion-segment-button>
+
+  <hr class="hrs">
+</ion-segment>
+
+
+
+
+<ion-content (swipeleft)="swipeLeftPress($event)" (swiperight)="swipeRightPress($event)" class="fast" id="ionContent">
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" refreshingSpinner="crescent">
+    </ion-refresher-content>
+  </ion-refresher>
+  
+  <!-- Home section -->
+  <div [ngSwitch]="category" scrollable>
+    <ion-list *ngSwitchCase="'home'">
+      <ion-card *ngIf="weatherFlag">
+        <ion-card-header>
+          <ion-card-subtitle>
+            <!--Basic: auto-select the icon based on the platform -->
+          </ion-card-subtitle>
+          <ion-grid style="margin-left: 2em;margin-right: 1em;">
+            <ion-row>
+              <ion-col>
+                <h1 class="weatherDegree" *ngIf="temp">{{temp}}<sup>০</sup>C</h1>
+                <p>Feels Like: <span>{{feelsLike}}</span><sup>0</sup> C</p>
+              </ion-col>
+              <ion-col class="weatherSummery" *ngIf="weatherIconUrl">
+                <img class="weatherIcon" src={{weatherIconUrl}} alt="weather icon">
+                <p>{{description}}</p>
+                <p>humidity <span *ngIf="humidity">{{humidity}}%</span></p>
+                <p>Wind: <span *ngIf="wind">{{wind}}</span> Mph</p>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-header>
+      </ion-card>
+      <!-- If location service is not enabled -->
+      <ion-card *ngIf="weatherFlag==false">
+        <ion-card-header>
+          <ion-card-subtitle>
+            <p>Please check your location service for weather report</p>
+          </ion-card-subtitle>
+        </ion-card-header>
+      </ion-card>
+
+
+      <!-- horizontal scroller -->
+      <div class="container ">
+        <h1 class="suggestedNews"> সর্বশেষ খবর</h1>
+        <div class="scroll" scrollX="true">
+          <span *ngFor="let result of allPosts">
+            <ion-card class=" horizontalScroll" (click)=goToSource(result.link)>
+              <ion-card-header>
+                <ion-badge>
+                  <img *ngIf="result.categories['0']=='14'" class="sourceLogo"
+                    src="/assets/img/news-source-icons/bdnews24-logo.png" />
+                  <img *ngIf="result.categories['0']=='17'" class="sourceLogo"
+                    src="/assets/img/news-source-icons/jugantor.png" />
+                  <img *ngIf="result.categories['0']=='15'" class="sourceLogo"
+                    src="/assets/img/news-source-icons/prothom-alo.png" />
+                  <img *ngIf="result.categories['0']=='76'" class="sourceLogo"
+                    src="/assets/img/news-source-icons/somokal.png" />
+                  <img *ngIf="result.categories['0']=='262'" class="sourceLogo"
+                    src="/assets/img/news-source-icons/tt-logo.png" />
+                </ion-badge>
+                <div class="newsRecommendedImg">
+                  <img *ngIf="result.fimg_url;" src="{{result.fimg_url}}" />
+                  <img *ngIf="!result.fimg_url" src="assets/img/news_fallback.png" />
+                </div>
+
+                <div style="position:absolute">
+                  <ion-card-subtitle class="newsRecommended" color="dark" *ngIf="result.title.rendered">
+                    {{result.title.rendered}}</ion-card-subtitle>
+                </div>
+
+              </ion-card-header>
+              <div class="newsTags">
+                <div class="publishedOn" *ngIf="result.date">
+                  <p style="margin:auto;">
+                    <ion-icon name="md-clock"></ion-icon> {{result.date}}
+                  </p>
+                </div>
+              </div>
+
+            </ion-card>
+          </span>
+        </div>
+      </div>
+      <div class="container ">
+        <h1 class="suggestedNews">সারাদিনের খবর</h1>
+        <!-- ionic grid starts -->
+        <ion-grid>
+          <ion-row>
+            <ion-col col-6 *ngFor="let result of allPosts" class="callOfTodaysNews">
+              <ion-card class="newsOfToday" (click)=goToSource(result.link) style="width:100%;margin: auto;">
+                <ion-card-header class="cardNewsHeader">
+                  <ion-badge class="sourceBadge">
+                    <img *ngIf="result.categories['0']=='14'" class="sourceLogo"
+                      src="/assets/img/news-source-icons/bdnews24-logo.png" />
+                    <img *ngIf="result.categories['0']=='17'" class="sourceLogo"
+                      src="/assets/img/news-source-icons/jugantor.png" />
+                    <img *ngIf="result.categories['0']=='15'" class="sourceLogo"
+                      src="/assets/img/news-source-icons/prothom-alo.png" />
+                    <img *ngIf="result.categories['0']=='76'" class="sourceLogo"
+                      src="/assets/img/news-source-icons/somokal.png" />
+                    <img *ngIf="result.categories['0']=='262'" class="sourceLogo"
+                      src="/assets/img/news-source-icons/tt-logo.png" />
+                  </ion-badge>
+                  <img *ngIf="result.fimg_url;" src="{{result.fimg_url}}" />
+                  <img *ngIf="!result.fimg_url" src="assets/img/news_fallback.png" />
+
+
+                  <ion-card-subtitle color="dark" *ngIf="result.title.rendered">{{result.title.rendered}}
+                  </ion-card-subtitle>
+
+                  <!-- <ion-card-title>Card Title</ion-card-title> -->
+                </ion-card-header>
+              </ion-card>
+            </ion-col>
+            <ion-infinite-scroll threshold="85%" (ionInfinite)="loadAllNews($event)">
+              <ion-infinite-scroll-content loadingSpinner="bubbles" >
+              </ion-infinite-scroll-content>
+            </ion-infinite-scroll>
+          </ion-row>
+        </ion-grid>
+      </div>
+
+    </ion-list>
+    <!-- Home ends -->
+    <!-- Videos news -->
+    <ion-list *ngSwitchCase="'videos'">
+      <div *ngFor="let result of jamunaTvYoutube">
+        <ion-card (click)=goToYoutube(result.id.videoId)>
+          <ion-card-header>
+            <ion-badge>ভিডিও নিউজ</ion-badge>
+            <img *ngIf="result.snippet.thumbnails.high.url;" src="{{result.snippet.thumbnails.high.url}}" />
+            <img *ngIf="!result.snippet.thumbnails.high.url;" src="assets/img/news_fallback.png" />
+            <ion-card-subtitle color="dark" class="sectionTitle" *ngIf="result.snippet.title">{{result.snippet.title}}
+            </ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+      </div>
+    </ion-list>
+    <!-- Bangladesh news -->
+    <ion-list *ngSwitchCase="'bangladesh'">
+      <div *ngFor="let result of resultsBd">
+        <ion-card (click)=goToSource(result.link)>
+          <ion-card-header>
+            <ion-badge>বাংলাদেশ</ion-badge>
+            <img *ngIf="result.fimg_url;" src="{{result.fimg_url}}" />
+            <img *ngIf="!result.fimg_url" src="assets/img/news_fallback.png" />
+            <ion-card-subtitle color="dark" class="sectionTitle" *ngIf="result.title.rendered">{{result.title.rendered}}
+            </ion-card-subtitle>
+          </ion-card-header>
+          <img *ngIf="result.categories['0']=='14'" class="sourceLogoAllCategory"
+            src="/assets/img/news-source-icons/bdnews24-logo.png" />
+          <img *ngIf="result.categories['0']=='17'" class="sourceLogoAllCategory"
+            src="/assets/img/news-source-icons/jugantor.png" />
+          <img *ngIf="result.categories['0']=='15'" class="sourceLogoAllCategory"
+            src="/assets/img/news-source-icons/prothom-alo.png" />
+          <img *ngIf="result.categories['0']=='76'" class="sourceLogoAllCategory"
+            src="/assets/img/news-source-icons/somokal.png" />
+          <img *ngIf="result.categories['0']=='262'" class="sourceLogoAllCategory"
+            src="/assets/img/news-source-icons/tt-logo.png" />
+        </ion-card>
+      </div>
+      <ion-infinite-scroll threshold="85%" (ionInfinite)="loadAllBangladeshNews($event)">
+        <ion-infinite-scroll-content loadingSpinner="bubbles" >
+        </ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+    </ion-list>
+
+    <!-- International segment body -->
+    <ion-list *ngSwitchCase="'international'">
+      <div *ngFor="let result of resultsInt">
+        <ion-card (click)=goToSource(result.link)>
+          <ion-card-header>
+            <ion-badge>আন্তর্জাতিক</ion-badge>
+            <img *ngIf="result.fimg_url;" src="{{result.fimg_url}}" />
+            <img *ngIf="!result.fimg_url" src="assets/img/news_fallback.png" />
+            <ion-card-subtitle color="dark" class="sectionTitle" *ngIf="result.title.rendered">{{result.title.rendered}}
+            </ion-card-subtitle>
+          </ion-card-header>
+          <img *ngIf="result.categories['0']=='14'" class="sourceLogoAllCategory"
+            src="/assets/img/news-source-icons/bdnews24-logo.png" />
+          <img *ngIf="result.categories['0']=='17'" class="sourceLogoAllCategory"
+            src="/assets/img/news-source-icons/jugantor.png" />
+          <img *ngIf="result.categories['0']=='15'" class="sourceLogoAllCategory"
+            src="/assets/img/news-source-icons/prothom-alo.png" />
+          <img *ngIf="result.categories['0']=='76'" class="sourceLogoAllCategory"
+            src="/assets/img/news-source-icons/somokal.png" />
+          <img *ngIf="result.categories['0']=='262'" class="sourceLogoAllCategory"
+            src="/assets/img/news-source-icons/tt-logo.png" />
+        </ion-card>
+      </div>
+      <ion-infinite-scroll threshold="85%" (ionInfinite)="loadAllInternationalNews($event)">
+        <ion-infinite-scroll-content loadingSpinner="bubbles" >
+        </ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+    </ion-list>
+
+    <!-- economy segment body -->
+    <ion-list *ngSwitchCase="'economy'">
+        <div *ngFor="let result of resultsEconomy">
+          <ion-card (click)=goToSource(result.link)>
+            <ion-card-header>
+              <ion-badge>অর্থনীতি</ion-badge>
+              <img *ngIf="result.fimg_url;" src="{{result.fimg_url}}" />
+              <img *ngIf="!result.fimg_url" src="assets/img/news_fallback.png" />
+              <ion-card-subtitle color="dark" class="sectionTitle" *ngIf="result.title.rendered">{{result.title.rendered}}
+              </ion-card-subtitle>
+            </ion-card-header>
+            <img *ngIf="result.categories['0']=='14'" class="sourceLogoAllCategory"
+              src="/assets/img/news-source-icons/bdnews24-logo.png" />
+            <img *ngIf="result.categories['0']=='17'" class="sourceLogoAllCategory"
+              src="/assets/img/news-source-icons/jugantor.png" />
+            <img *ngIf="result.categories['0']=='15'" class="sourceLogoAllCategory"
+              src="/assets/img/news-source-icons/prothom-alo.png" />
+            <img *ngIf="result.categories['0']=='76'" class="sourceLogoAllCategory"
+              src="/assets/img/news-source-icons/somokal.png" />
+            <img *ngIf="result.categories['0']=='262'" class="sourceLogoAllCategory"
+              src="/assets/img/news-source-icons/tt-logo.png" />
+          </ion-card>
+        </div>
+        <ion-infinite-scroll threshold="85%" (ionInfinite)="loadAllEconomyNews($event)">
+          <ion-infinite-scroll-content loadingSpinner="bubbles" >
+          </ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+      </ion-list>
+
+
+    <!-- Entertainment segment body -->
+    <ion-list *ngSwitchCase="'entertainment'">
+      <div *ngFor="let result of resultsEnt">
+        <ion-card (click)=goToSource(result.link)>
+          <ion-card-header>
+            <ion-badge>বিনোদন</ion-badge>
+
+            <img *ngIf="result.fimg_url;" src="{{result.fimg_url}}" />
+            <img *ngIf="!result.fimg_url" src="assets/img/news_fallback.png" />
+            <ion-card-subtitle color="dark" class="sectionTitle" class="sectionTitle" *ngIf="result.title.rendered">
+              {{result.title.rendered}}</ion-card-subtitle>
+          </ion-card-header>
+          <img *ngIf="result.categories['0']=='14'" class="sourceLogoAllCategory"
+            src="/assets/img/news-source-icons/bdnews24-logo.png" />
+          <img *ngIf="result.categories['0']=='17'" class="sourceLogoAllCategory"
+            src="/assets/img/news-source-icons/jugantor.png" />
+          <img *ngIf="result.categories['0']=='15'" class="sourceLogoAllCategory"
+            src="/assets/img/news-source-icons/prothom-alo.png" />
+          <img *ngIf="result.categories['0']=='76'" class="sourceLogoAllCategory"
+            src="/assets/img/news-source-icons/somokal.png" />
+          <img *ngIf="result.categories['0']=='262'" class="sourceLogoAllCategory"
+            src="/assets/img/news-source-icons/tt-logo.png" />
+
+        </ion-card>
+      </div>
+      <ion-infinite-scroll threshold="85%" (ionInfinite)="loadAllEntertainmentNews($event)">
+        <ion-infinite-scroll-content loadingSpinner="bubbles" >
+        </ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+    </ion-list>
+
+
+    <!-- Tech segment body -->
+    <ion-list *ngSwitchCase="'tech'">
+      <div *ngFor="let result of resultsTech">
+        <ion-card (click)=goToSource(result.link)>
+          <ion-card-header>
+            <ion-badge>টেক</ion-badge>
+
+            <img *ngIf="result.fimg_url;" src="{{result.fimg_url}}" />
+            <img *ngIf="!result.fimg_url" src="assets/img/news_fallback.png" />
+            <ion-card-subtitle color="dark" class="sectionTitle" class="sectionTitle" *ngIf="result.title.rendered">
+              {{result.title.rendered}}</ion-card-subtitle>
+          </ion-card-header>
+          <img *ngIf="result.categories['0']=='14'" class="sourceLogoAllCategory"
+            src="/assets/img/news-source-icons/bdnews24-logo.png" />
+          <img *ngIf="result.categories['0']=='17'" class="sourceLogoAllCategory"
+            src="/assets/img/news-source-icons/jugantor.png" />
+          <img *ngIf="result.categories['0']=='15'" class="sourceLogoAllCategory"
+            src="/assets/img/news-source-icons/prothom-alo.png" />
+          <img *ngIf="result.categories['0']=='76'" class="sourceLogoAllCategory"
+            src="/assets/img/news-source-icons/somokal.png" />
+          <img *ngIf="result.categories['0']=='262'" class="sourceLogoAllCategory"
+            src="/assets/img/news-source-icons/tt-logo.png" />
+
+        </ion-card>
+      </div>
+      <ion-infinite-scroll threshold="85%" (ionInfinite)="loadAllTechNews($event)">
+        <ion-infinite-scroll-content loadingSpinner="bubbles" >
+        </ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+    </ion-list>
+
+
+    <!-- Sports segment body -->
+    <ion-list *ngSwitchCase="'sports'">
+      <div *ngFor="let result of resultsSports">
+        <ion-card (click)=goToSource(result.link)>
+          <ion-card-header>
+            <ion-badge>খেলা</ion-badge>
+            <img *ngIf="result.fimg_url;" src="{{result.fimg_url}}" />
+            <img *ngIf="!result.fimg_url" src="assets/img/news_fallback.png" />
+            <ion-card-subtitle color="dark" class="sectionTitle" *ngIf="result.title.rendered">{{result.title.rendered}}
+            </ion-card-subtitle>
+          </ion-card-header>
+
+          <img *ngIf="result.categories['0']=='14'" class="sourceLogoAllCategory"
+            src="/assets/img/news-source-icons/bdnews24-logo.png" />
+          <img *ngIf="result.categories['0']=='17'" class="sourceLogoAllCategory"
+            src="/assets/img/news-source-icons/jugantor.png" />
+          <img *ngIf="result.categories['0']=='15'" class="sourceLogoAllCategory"
+            src="/assets/img/news-source-icons/prothom-alo.png" />
+          <img *ngIf="result.categories['0']=='76'" class="sourceLogoAllCategory"
+            src="/assets/img/news-source-icons/somokal.png" />
+          <img *ngIf="result.categories['0']=='262'" class="sourceLogoAllCategory"
+            src="/assets/img/news-source-icons/tt-logo.png" />
+        </ion-card>
+      </div>
+      <ion-infinite-scroll threshold="85%" (ionInfinite)="loadAllSportsNews($event)">
+        <ion-infinite-scroll-content loadingSpinner="bubbles" >
+        </ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+    </ion-list>
+    <!-- Lifestyle segment body -->
+    <ion-list *ngSwitchCase="'lifeStyle'">
+      <div *ngFor="let result of resultsLifeStyle">
+        <ion-card (click)=goToSource(result.link)>
+          <ion-card-header>
+            <ion-badge>লাইফ স্টাইল</ion-badge>
+            <img *ngIf="result.fimg_url;" src="{{result.fimg_url}}" />
+            <img *ngIf="!result.fimg_url" src="assets/img/news_fallback.png" />
+            <ion-card-subtitle color="dark" class="sectionTitle" *ngIf="result.title.rendered">{{result.title.rendered}}
+            </ion-card-subtitle>
+          </ion-card-header>
+          <img *ngIf="result.categories['0']=='14'" class="sourceLogoAllCategory"
+            src="/assets/img/news-source-icons/bdnews24-logo.png" />
+          <img *ngIf="result.categories['0']=='17'" class="sourceLogoAllCategory"
+            src="/assets/img/news-source-icons/jugantor.png" />
+          <img *ngIf="result.categories['0']=='15'" class="sourceLogoAllCategory"
+            src="/assets/img/news-source-icons/prothom-alo.png" />
+          <img *ngIf="result.categories['0']=='76'" class="sourceLogoAllCategory"
+            src="/assets/img/news-source-icons/somokal.png" />
+          <img *ngIf="result.categories['0']=='262'" class="sourceLogoAllCategory"
+            src="/assets/img/news-source-icons/tt-logo.png" />
+        </ion-card>
+      </div>
+      <ion-infinite-scroll threshold="85%" (ionInfinite)="loadAllLifeStyleNews($event)">
+        <ion-infinite-scroll-content loadingSpinner="bubbles" >
+        </ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+    </ion-list>
+
+    <!-- education -->
+    <ion-list *ngSwitchCase="'education'">
+        <div *ngFor="let result of resultsEducation">
+          <ion-card (click)=goToSource(result.link)>
+            <ion-card-header>
+              <ion-badge>শিক্ষা</ion-badge>
+              <img *ngIf="result.fimg_url;" src="{{result.fimg_url}}" />
+              <img *ngIf="!result.fimg_url" src="assets/img/news_fallback.png" />
+              <ion-card-subtitle color="dark" class="sectionTitle" *ngIf="result.title.rendered">{{result.title.rendered}}
+              </ion-card-subtitle>
+            </ion-card-header>
+            <img *ngIf="result.categories['0']=='14'" class="sourceLogoAllCategory"
+              src="/assets/img/news-source-icons/bdnews24-logo.png" />
+            <img *ngIf="result.categories['0']=='17'" class="sourceLogoAllCategory"
+              src="/assets/img/news-source-icons/jugantor.png" />
+            <img *ngIf="result.categories['0']=='15'" class="sourceLogoAllCategory"
+              src="/assets/img/news-source-icons/prothom-alo.png" />
+            <img *ngIf="result.categories['0']=='76'" class="sourceLogoAllCategory"
+              src="/assets/img/news-source-icons/somokal.png" />
+            <img *ngIf="result.categories['0']=='262'" class="sourceLogoAllCategory"
+              src="/assets/img/news-source-icons/tt-logo.png" />
+          </ion-card>
+        </div>
+        <ion-infinite-scroll threshold="85%" (ionInfinite)="loadAllEducationNews($event)">
+          <ion-infinite-scroll-content loadingSpinner="bubbles" >
+          </ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+      </ion-list>
+      <!-- //education -->
+
+
+
+
+    <!-- crime -->
+    <ion-list *ngSwitchCase="'crime'">
+        <div *ngFor="let result of resultsCrime">
+          <ion-card (click)=goToSource(result.link)>
+            <ion-card-header>
+              <ion-badge>অপরাধ জগত</ion-badge>
+              <img *ngIf="result.fimg_url;" src="{{result.fimg_url}}" />
+              <img *ngIf="!result.fimg_url" src="assets/img/news_fallback.png" />
+              <ion-card-subtitle color="dark" class="sectionTitle" *ngIf="result.title.rendered">{{result.title.rendered}}
+              </ion-card-subtitle>
+            </ion-card-header>
+            <img *ngIf="result.categories['0']=='14'" class="sourceLogoAllCategory"
+              src="/assets/img/news-source-icons/bdnews24-logo.png" />
+            <img *ngIf="result.categories['0']=='17'" class="sourceLogoAllCategory"
+              src="/assets/img/news-source-icons/jugantor.png" />
+            <img *ngIf="result.categories['0']=='15'" class="sourceLogoAllCategory"
+              src="/assets/img/news-source-icons/prothom-alo.png" />
+            <img *ngIf="result.categories['0']=='76'" class="sourceLogoAllCategory"
+              src="/assets/img/news-source-icons/somokal.png" />
+            <img *ngIf="result.categories['0']=='262'" class="sourceLogoAllCategory"
+              src="/assets/img/news-source-icons/tt-logo.png" />
+          </ion-card>
+        </div>
+        <ion-infinite-scroll threshold="85%" (ionInfinite)="loadAllCrimeNews($event)">
+          <ion-infinite-scroll-content loadingSpinner="bubbles" >
+          </ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+      </ion-list>
+      <!-- //crime -->
+
+
+
+    <!-- culture -->
+    <ion-list *ngSwitchCase="'culture'">
+        <div *ngFor="let result of resultsCulture">
+          <ion-card (click)=goToSource(result.link)>
+            <ion-card-header>
+              <ion-badge>শিল্প-সাহিত্য</ion-badge>
+              <img *ngIf="result.fimg_url;" src="{{result.fimg_url}}" />
+              <img *ngIf="!result.fimg_url" src="assets/img/news_fallback.png" />
+              <ion-card-subtitle color="dark" class="sectionTitle" *ngIf="result.title.rendered">{{result.title.rendered}}
+              </ion-card-subtitle>
+            </ion-card-header>
+            <img *ngIf="result.categories['0']=='14'" class="sourceLogoAllCategory"
+              src="/assets/img/news-source-icons/bdnews24-logo.png" />
+            <img *ngIf="result.categories['0']=='17'" class="sourceLogoAllCategory"
+              src="/assets/img/news-source-icons/jugantor.png" />
+            <img *ngIf="result.categories['0']=='15'" class="sourceLogoAllCategory"
+              src="/assets/img/news-source-icons/prothom-alo.png" />
+            <img *ngIf="result.categories['0']=='76'" class="sourceLogoAllCategory"
+              src="/assets/img/news-source-icons/somokal.png" />
+            <img *ngIf="result.categories['0']=='262'" class="sourceLogoAllCategory"
+              src="/assets/img/news-source-icons/tt-logo.png" />
+          </ion-card>
+        </div>
+        <ion-infinite-scroll threshold="85%" (ionInfinite)="loadAllCultureNews($event)">
+          <ion-infinite-scroll-content loadingSpinner="bubbles" >
+          </ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+      </ion-list>
+      <!-- //culture -->
+    
+    
+    
+    <!-- vivid -->
+    <ion-list *ngSwitchCase="'vivid'">
+        <div *ngFor="let result of resultsVivid">
+          <ion-card (click)=goToSource(result.link)>
+            <ion-card-header>
+              <ion-badge>বিচিত্র</ion-badge>
+              <img *ngIf="result.fimg_url;" src="{{result.fimg_url}}" />
+              <img *ngIf="!result.fimg_url" src="assets/img/news_fallback.png" />
+              <ion-card-subtitle color="dark" class="sectionTitle" *ngIf="result.title.rendered">{{result.title.rendered}}
+              </ion-card-subtitle>
+            </ion-card-header>
+            <img *ngIf="result.categories['0']=='14'" class="sourceLogoAllCategory"
+              src="/assets/img/news-source-icons/bdnews24-logo.png" />
+            <img *ngIf="result.categories['0']=='17'" class="sourceLogoAllCategory"
+              src="/assets/img/news-source-icons/jugantor.png" />
+            <img *ngIf="result.categories['0']=='15'" class="sourceLogoAllCategory"
+              src="/assets/img/news-source-icons/prothom-alo.png" />
+            <img *ngIf="result.categories['0']=='76'" class="sourceLogoAllCategory"
+              src="/assets/img/news-source-icons/somokal.png" />
+            <img *ngIf="result.categories['0']=='262'" class="sourceLogoAllCategory"
+              src="/assets/img/news-source-icons/tt-logo.png" />
+          </ion-card>
+        </div>
+        <ion-infinite-scroll threshold="85%" (ionInfinite)="loadAllVividNews($event)">
+          <ion-infinite-scroll-content loadingSpinner="bubbles" >
+          </ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+      </ion-list>
+      <!-- //vivid -->
+
+
+    <!-- business -->
+    <ion-list *ngSwitchCase="'business'">
+        <div *ngFor="let result of resultsBusiness">
+          <ion-card (click)=goToSource(result.link)>
+            <ion-card-header>
+              <ion-badge>ব্যবসা-বাণিজ্য</ion-badge>
+              <img *ngIf="result.fimg_url;" src="{{result.fimg_url}}" />
+              <img *ngIf="!result.fimg_url" src="assets/img/news_fallback.png" />
+              <ion-card-subtitle color="dark" class="sectionTitle" *ngIf="result.title.rendered">{{result.title.rendered}}
+              </ion-card-subtitle>
+            </ion-card-header>
+            <img *ngIf="result.categories['0']=='14'" class="sourceLogoAllCategory"
+              src="/assets/img/news-source-icons/bdnews24-logo.png" />
+            <img *ngIf="result.categories['0']=='17'" class="sourceLogoAllCategory"
+              src="/assets/img/news-source-icons/jugantor.png" />
+            <img *ngIf="result.categories['0']=='15'" class="sourceLogoAllCategory"
+              src="/assets/img/news-source-icons/prothom-alo.png" />
+            <img *ngIf="result.categories['0']=='76'" class="sourceLogoAllCategory"
+              src="/assets/img/news-source-icons/somokal.png" />
+            <img *ngIf="result.categories['0']=='262'" class="sourceLogoAllCategory"
+              src="/assets/img/news-source-icons/tt-logo.png" />
+          </ion-card>
+        </div>
+        <ion-infinite-scroll threshold="85%" (ionInfinite)="loadAllBusinessNews($event)">
+          <ion-infinite-scroll-content loadingSpinner="bubbles" >
+          </ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+      </ion-list>
+      <!-- //business -->
+
+
+
+    <!-- horoscope -->
+    <ion-list *ngSwitchCase="'horoscope'">
+        <div *ngFor="let result of resultsHoroscope">
+          <ion-card (click)=goToSource(result.link)>
+            <ion-card-header>
+              <ion-badge>রাশিফল</ion-badge>
+              <img *ngIf="result.fimg_url;" src="{{result.fimg_url}}" />
+              <img *ngIf="!result.fimg_url" src="assets/img/news_fallback.png" />
+              <ion-card-subtitle color="dark" class="sectionTitle" *ngIf="result.title.rendered">{{result.title.rendered}}
+              </ion-card-subtitle>
+            </ion-card-header>
+            <img *ngIf="result.categories['0']=='14'" class="sourceLogoAllCategory"
+              src="/assets/img/news-source-icons/bdnews24-logo.png" />
+            <img *ngIf="result.categories['0']=='17'" class="sourceLogoAllCategory"
+              src="/assets/img/news-source-icons/jugantor.png" />
+            <img *ngIf="result.categories['0']=='15'" class="sourceLogoAllCategory"
+              src="/assets/img/news-source-icons/prothom-alo.png" />
+            <img *ngIf="result.categories['0']=='76'" class="sourceLogoAllCategory"
+              src="/assets/img/news-source-icons/somokal.png" />
+            <img *ngIf="result.categories['0']=='262'" class="sourceLogoAllCategory"
+              src="/assets/img/news-source-icons/tt-logo.png" />
+          </ion-card>
+        </div>
+        <ion-infinite-scroll threshold="85%" (ionInfinite)="loadAllHoroscopeNews($event)">
+          <ion-infinite-scroll-content loadingSpinner="bubbles" >
+          </ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+      </ion-list>
+      <!-- //horoscope -->
+
+
+  </div>
+
+
+</ion-content>

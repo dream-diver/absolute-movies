@@ -1,0 +1,354 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --web-view-ids: ID5;
+}
+
+#ID5 * {
+  margin: 0;
+  margin-top: -122px;
+  padding: 0;
+  min-width: 16em;
+  min-height: 40em;
+  padding: 0;
+}
+
+#ID5 {
+  position: absolute;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: #E5E5E5;
+  width: 375px;
+  height: 812px;
+  background-color: white;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  opacity: 1;
+  --web-view-name: 5;
+  --web-view-id: ID5;
+  --web-enable-deep-linking: true;
+}
+
+#gdrt {
+  opacity: 1;
+  fill: url(#gdrt_A4_Rectangle_27_pattern);
+}
+
+.gdrt {
+  position: absolute;
+  overflow: visible;
+  width: 375.5px;
+  height: 812px;
+  left: 0px;
+  top: 0px;
+}
+
+#status_bar_dark {
+  opacity: 1;
+  position: absolute;
+  width: 340.328px;
+  height: 16px;
+  left: 17px;
+  top: 15px;
+  overflow: visible;
+}
+
+#Background {
+  opacity: 1;
+  fill: white;
+}
+
+.Background {
+  -webkit-transform: matrix(1, 0, 0, 1, 0, 0);
+          transform: matrix(1, 0, 0, 1, 0, 0);
+  overflow: visible;
+  position: absolute;
+  top: -15px;
+  left: -20px;
+  width: 375px;
+  height: 44px;
+}
+
+#Battery {
+  opacity: 1;
+  position: absolute;
+  width: 24.328px;
+  height: 11.333px;
+  left: 316px;
+  top: 2.333px;
+  overflow: visible;
+}
+
+#Border {
+  opacity: 1;
+  position: absolute;
+  width: 22px;
+  height: 11.333px;
+  left: 0px;
+  top: 0px;
+  overflow: visible;
+}
+
+#Cap {
+  opacity: 1;
+  position: absolute;
+  width: 1.328px;
+  height: 4px;
+  left: 23px;
+  top: 3.667px;
+  overflow: visible;
+}
+
+#Capacity {
+  opacity: 1;
+  position: absolute;
+  width: 18px;
+  height: 7.333px;
+  left: 2px;
+  top: 2px;
+  overflow: visible;
+}
+
+#Wifi {
+  opacity: 1;
+  position: absolute;
+  width: 15.272px;
+  height: 10.966px;
+  left: 295.694px;
+  top: 2.331px;
+  overflow: visible;
+}
+
+#Wifi_A4_Group_57 {
+  opacity: 1;
+  position: absolute;
+  width: 15.272px;
+  height: 10.966px;
+  left: 0px;
+  top: 0px;
+  overflow: visible;
+}
+
+#Cellular_Connection {
+  opacity: 1;
+  position: absolute;
+  width: 17px;
+  height: 10.667px;
+  left: 273.667px;
+  top: 2.667px;
+  overflow: visible;
+}
+
+#Cellular_Connection_A4_Group_59 {
+  opacity: 1;
+  position: absolute;
+  width: 17px;
+  height: 10.667px;
+  left: 0px;
+  top: 0px;
+  overflow: visible;
+}
+
+#Bars___Time_Black {
+  opacity: 1;
+  position: absolute;
+  width: 54px;
+  height: 16px;
+  left: 0px;
+  top: 0px;
+  overflow: visible;
+}
+
+#Background_A4_Path_53 {
+  opacity: 1;
+  fill: rgba(0, 0, 0, 0);
+}
+
+.Background_A4_Path_53 {
+  -webkit-transform: matrix(1, 0, 0, 1, 0, 0);
+          transform: matrix(1, 0, 0, 1, 0, 0);
+  overflow: visible;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 54px;
+  height: 16px;
+}
+
+#__Time {
+  opacity: 1;
+  fill: white;
+}
+
+.__Time {
+  -webkit-transform: matrix(1, 0, 0, 1, 0, 0);
+          transform: matrix(1, 0, 0, 1, 0, 0);
+  overflow: visible;
+  position: absolute;
+  top: 4.89px;
+  left: 12.823px;
+  width: 27.451px;
+  height: 10.35px;
+}
+
+#Rectangle_2195 {
+  opacity: 1;
+  width: 18em;
+  fill: #dc4b3f;
+}
+
+.Rectangle_2195 {
+  position: absolute;
+  overflow: visible;
+  width: 302px;
+  height: 55.79px;
+  left: 38px;
+  top: 561.578px;
+}
+
+svg {
+  vertical-align: middle;
+}
+
+#facebook_button_area {
+  opacity: 1;
+  width: 18em;
+  fill: #4267b2;
+  z-index: 999;
+}
+
+.facebook_button_area {
+  position: absolute;
+  overflow: visible;
+  width: 302px;
+  height: 55.79px;
+  left: 38px;
+  top: 490px;
+  z-index: 999;
+}
+
+#facebook_login {
+  opacity: 1;
+  position: absolute;
+  cursor: pointer;
+  z-index: 999;
+  left: 4.8em;
+  top: 502px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  width: 116px;
+  white-space: nowrap;
+  text-align: center;
+  font-family: PT Serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  color: white;
+}
+
+#google_signin {
+  opacity: 1;
+  position: absolute;
+  left: 4.8em;
+  top: 578px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  width: 103px;
+  white-space: nowrap;
+  text-align: center;
+  font-family: PT Serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  color: white;
+}
+
+#____________________ {
+  opacity: 1;
+  position: absolute;
+  left: 37px;
+  top: 176px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  width: 179px;
+  white-space: nowrap;
+  line-height: 42px;
+  margin-top: -3px;
+  text-align: left;
+  font-family: PT Serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  color: white;
+  z-index: 0;
+}
+
+#______________________________ {
+  opacity: 1;
+  position: absolute;
+  left: 37px;
+  top: 359px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  width: 301px;
+  height: 68px;
+  line-height: 22px;
+  margin-top: -4px;
+  text-align: left;
+  font-family: PT Serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  color: white;
+}
+
+#Rectangle_2250 {
+  opacity: 1;
+  fill: #e3cb9a;
+  z-index: -1;
+}
+
+.Rectangle_2250 {
+  position: absolute;
+  overflow: visible;
+  width: 35px;
+  height: 2px;
+  left: 37px;
+  top: 334px;
+}
+
+::-webkit-scrollbar, *::-webkit-scrollbar {
+  display: none;
+  overflow: hidden;
+}
+
+ion-content {
+  overflow: hidden;
+  --overflow: hidden;
+}
+
+.scroll-content {
+  overflow: hidden;
+}
+
+ion-infinite-scroll.md.infinite-scroll-enabled.hydrated {
+  overflow: scroll !important;
+  height: 100% !important;
+}
+/*# sourceMappingURL=login.page.css.map */
