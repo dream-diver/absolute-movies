@@ -23,14 +23,14 @@ import { OneSignal } from '@ionic-native/onesignal/ngx';
 
 import { AdMobFree } from '@ionic-native/admob-free/ngx';
 import { AdmobFreeService } from './services/admobfree.service';
-
+import { ExampleModalPageModule } from './pages/example-modal/example-modal.module';
 
 
 
 @NgModule({
   declarations: [AppComponent, MomentPipe],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,HttpClientModule,IonicSwipeAllModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,HttpClientModule,IonicSwipeAllModule,ExampleModalPageModule],
   providers: [
     StatusBar,
     SplashScreen,

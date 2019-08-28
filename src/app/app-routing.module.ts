@@ -8,6 +8,8 @@ const routes: Routes = [
   { path: 'about', loadChildren: './pages/about/about.module#AboutPageModule' },
   { path: 'sources', loadChildren: './pages/sources/sources.module#SourcesPageModule' },
   { path: 'livetv', loadChildren: './pages/livetv/livetv.module#LivetvPageModule' },
+  { path: 'example-modal', loadChildren: './pages/example-modal/example-modal.module#ExampleModalPageModule' },
+
 
 ];
 
