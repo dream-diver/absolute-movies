@@ -1633,7 +1633,7 @@ var ExampleModalPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\r\n  <ion-toolbar>\r\n    <ion-title>{{name}}</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n<div id=\"frame\">\r\n\t\r\n</div>\r\n<ion-button (click)=\"closeModal()\">Close Modal</ion-button>\r\n</ion-content>\r\n"
+module.exports = "<ion-header>\r\n  <ion-toolbar>\r\n    <ion-title><p>{{name}}</p></ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n<div id=\"frame\">\r\n\t\r\n</div>\r\n<ion-button (click)=\"closeModal()\">Close Modal</ion-button>\r\n</ion-content>\r\n"
 
 /***/ }),
 
