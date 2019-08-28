@@ -58,7 +58,7 @@ var LivetvPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-title>livetv</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n\t<ion-button color=\"dark\" expand=\"full\"\n\t*ngFor=\"let c of tvChannels\" (click)=goToChannel(c.url)>{{c.channelName}}</ion-button>\n</ion-content>\n"
+module.exports = "<ion-header>\r\n  <ion-toolbar>\r\n      <ion-buttons slot=\"start\">\r\n        <ion-menu-button></ion-menu-button>\r\n        <img src=\"../../../assets/img/logo-200.png\" height=\"35\">\r\n      </ion-buttons>\r\n    <ion-title>বাংলাদেশী লাইভ টিভি</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <!-- <p>\r\n    <ion-chip color=\"dark\" expand=\"full\"\r\n    *ngFor=\"let c of tvChannels\" (click)=goToChannel(c.url)>\r\n        <ion-avatar>\r\n          <img src='{{\"../../../assets/img/tv-logos/\" + c.logo}}'>\r\n        </ion-avatar>\r\n        <ion-label color=\"success\">{{c.channelName}}</ion-label>\r\n      </ion-chip>\r\n  </p> -->\r\n\r\n       <ion-card (click)=\"openModal()\">\r\n        <ion-card-header>\r\n          <ion-card-subtitle>\r\n            <!--Basic: auto-select the icon based on the platform -->\r\n          </ion-card-subtitle>\r\n          <ion-grid style=\"margin-left: 2em;margin-right: 1em;\">\r\n            <ion-row>\r\n              <ion-col >\r\n                <img alt=\"Fast &amp; Furious Presents: Hobbs &amp; Shaw\" class=\"thumb mli-thumb lazy\" data-original=\"https://img.voxzer.org/poster/29103/Fast-Furious-Presents-Hobbs-Shaw-29103-200.jpg\" title=\"Fast &amp; Furious Presents: Hobbs &amp; Shaw\" src=\"https://img.voxzer.org/poster/29103/Fast-Furious-Presents-Hobbs-Shaw-29103-200.jpg\" style=\"display: block;\">\r\n              </ion-col>\r\n            </ion-row>\r\n          </ion-grid>\r\n        </ion-card-header>\r\n      </ion-card>\r\n</ion-content>\r\n"
 
 /***/ }),
 
@@ -69,7 +69,7 @@ module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-title>livetv</ion-titl
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2xpdmV0di9saXZldHYucGFnZS5zY3NzIn0= */"
+module.exports = "ion-toolbar {\n  --background: #fe8c00; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvbGl2ZXR2L0Q6XFxOT0RFSlMgQVBQXFxJb25pYzRcXGFic29sdXRlLW1vdmllcy9zcmNcXGFwcFxccGFnZXNcXGxpdmV0dlxcbGl2ZXR2LnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLHFCQUFhLEVBQUEiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9saXZldHYvbGl2ZXR2LnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbImlvbi10b29sYmFyIHtcclxuICAgIC0tYmFja2dyb3VuZDogI2ZlOGMwMDtcclxufSJdfQ== */"
 
 /***/ }),
 
@@ -86,23 +86,63 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _ionic_native_in_app_browser_ngx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic-native/in-app-browser/ngx */ "./node_modules/@ionic-native/in-app-browser/ngx/index.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _example_modal_example_modal_page__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../example-modal/example-modal.page */ "./src/app/pages/example-modal/example-modal.page.ts");
+
+
+
 
 
 
 var LivetvPage = /** @class */ (function () {
-    function LivetvPage(iab) {
+    function LivetvPage(iab, router, modalController) {
         this.iab = iab;
+        this.router = router;
+        this.modalController = modalController;
         this.tvChannels = [];
         this.tvChannels = [
-            { channelName: "Ekattur TV", url: "https://www.bioscopelive.com/en/channel/ekattur-tv" },
-            { channelName: "Independent TV", url: "https://www.bioscopelive.com/en/channel/independent-tv" },
-            { channelName: "ATN Bangla", url: "https://www.bioscopelive.com/en/channel/atn-bangla" },
-            { channelName: "My TV", url: "https://www.bioscopelive.com/en/channel/my-tv" },
+            // tslint:disable-next-line: indent
+            { channelName: 'Ekattur TV', url: 'https://www.bioscopelive.com/en/channel/ekattur-tv', logo: 'ekattor-tv.png' },
+            { channelName: 'Independent TV', url: 'https://www.bioscopelive.com/en/channel/independent-tv', logo: 'independent-tv-logo.png' },
+            { channelName: 'ATN Bangla', url: 'https://www.bioscopelive.com/en/channel/atn-bangla', logo: 'atn-bangla-tv.png' },
+            { channelName: 'My TV', url: 'https://www.bioscopelive.com/en/channel/my-tv', logo: 'my-tv-logo.png' },
         ];
     }
     LivetvPage.prototype.goToChannel = function (url) {
         this.iab.create(url, '_self', 'location=yes');
     };
+    LivetvPage.prototype.openModal = function () {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var modal;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.modalController.create({
+                            component: _example_modal_example_modal_page__WEBPACK_IMPORTED_MODULE_5__["ExampleModalPage"],
+                            componentProps: {
+                                "name": "Hobbs And Shaw",
+                                "frame": '<iframe allowfullscreen="true" frameborder="0" height="500" id="iframe-embed" mozallowfullscreen="true" scrolling="no" src="https://play.voxzer.org/watch?v=gAAAAABdZiMY9sTslWsBed8930qK3swQ2nl2YmMYgbkcoFM2Z8rHGF3xcWg5Snd9ZKrJ-dUwcn4OJsCNbiD-CxPSPyre08xEhfY01r8WCESDvHGEOyd5jIq1PIy7QuxpSgLGjpAkZRe_CCTWogxXEET7RYqj2bvZHA==" webkitallowfullscreen="true" width="100%" __idm_frm__="130"></iframe>'
+                            }
+                        })];
+                    case 1:
+                        modal = _a.sent();
+                        modal.onDidDismiss().then(function (dataReturned) {
+                            // if (dataReturned !== null) {
+                            //   this.dataReturned = dataReturned.data;
+                            //   //alert('Modal Sent Data :'+ dataReturned);
+                            // }
+                        });
+                        return [4 /*yield*/, modal.present()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    // test1(){
+    //   this.router.navigate(['/home'],{
+    //           queryParams: this.object,
+    //           });
+    // }
     LivetvPage.prototype.ngOnInit = function () {
     };
     LivetvPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -111,7 +151,7 @@ var LivetvPage = /** @class */ (function () {
             template: __webpack_require__(/*! ./livetv.page.html */ "./src/app/pages/livetv/livetv.page.html"),
             styles: [__webpack_require__(/*! ./livetv.page.scss */ "./src/app/pages/livetv/livetv.page.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_native_in_app_browser_ngx__WEBPACK_IMPORTED_MODULE_2__["InAppBrowser"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_native_in_app_browser_ngx__WEBPACK_IMPORTED_MODULE_2__["InAppBrowser"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["ModalController"]])
     ], LivetvPage);
     return LivetvPage;
 }());

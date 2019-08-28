@@ -58,7 +58,7 @@ var SourcesPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-title>sources</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n\n</ion-content>\n"
+module.exports = "<ion-header>\r\n  <ion-toolbar>\r\n      <ion-buttons slot=\"start\">\r\n        <ion-menu-button></ion-menu-button>\r\n        <img src=\"../../../assets/img/logo-200.png\" height=\"35\">\r\n      </ion-buttons>\r\n    <ion-title>উৎস</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n\r\n</ion-content>\r\n"
 
 /***/ }),
 
@@ -69,7 +69,7 @@ module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-title>sources</ion-tit
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL3NvdXJjZXMvc291cmNlcy5wYWdlLnNjc3MifQ== */"
+module.exports = "ion-toolbar {\n  --background: #fe8c00; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvc291cmNlcy9EOlxcTk9ERUpTIEFQUFxcSW9uaWM0XFxhYnNvbHV0ZS1tb3ZpZXMvc3JjXFxhcHBcXHBhZ2VzXFxzb3VyY2VzXFxzb3VyY2VzLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLHFCQUFhLEVBQUEiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9zb3VyY2VzL3NvdXJjZXMucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiaW9uLXRvb2xiYXIge1xyXG4gICAgLS1iYWNrZ3JvdW5kOiAjZmU4YzAwO1xyXG59Il19 */"
 
 /***/ }),
 

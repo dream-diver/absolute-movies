@@ -1,6 +1,14 @@
 cordova.define('cordova/plugin_list', function(require, exports, module) {
 module.exports = [
   {
+    "id": "com.moust.cordova.videoplayer.VideoPlayer",
+    "file": "plugins/com.moust.cordova.videoplayer/www/videoplayer.js",
+    "pluginId": "com.moust.cordova.videoplayer",
+    "clobbers": [
+      "VideoPlayer"
+    ]
+  },
+  {
     "id": "cordova-promise-polyfill.Promise",
     "file": "plugins/cordova-promise-polyfill/www/Promise.js",
     "pluginId": "cordova-promise-polyfill",
@@ -109,25 +117,26 @@ module.exports = [
     ]
   },
   {
-    "id": "onesignal-cordova-plugin.OneSignal",
-    "file": "plugins/onesignal-cordova-plugin/www/OneSignal.js",
-    "pluginId": "onesignal-cordova-plugin",
-    "clobbers": [
-      "OneSignal"
-    ]
-  },
-  {
     "id": "cordova-plugin-x-toast.Toast",
     "file": "plugins/cordova-plugin-x-toast/www/Toast.js",
     "pluginId": "cordova-plugin-x-toast",
     "clobbers": [
       "window.plugins.toast"
     ]
+  },
+  {
+    "id": "onesignal-cordova-plugin.OneSignal",
+    "file": "plugins/onesignal-cordova-plugin/www/OneSignal.js",
+    "pluginId": "onesignal-cordova-plugin",
+    "clobbers": [
+      "OneSignal"
+    ]
   }
 ];
 module.exports.metadata = 
 // TOP OF METADATA
 {
+  "com.moust.cordova.videoplayer": "1.0.1",
   "cordova-admob-sdk": "0.24.1",
   "cordova-promise-polyfill": "0.0.2",
   "cordova-plugin-admob-free": "0.27.0",
@@ -141,8 +150,8 @@ module.exports.metadata =
   "cordova-plugin-splashscreen": "5.0.2",
   "cordova-plugin-statusbar": "2.4.2",
   "cordova-plugin-whitelist": "1.3.3",
-  "onesignal-cordova-plugin": "2.5.0",
-  "cordova-plugin-x-toast": "2.7.2"
+  "cordova-plugin-x-toast": "2.7.2",
+  "onesignal-cordova-plugin": "2.5.0"
 };
 // BOTTOM OF METADATA
 });
