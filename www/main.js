@@ -1183,7 +1183,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var routes = [
-    { path: '', redirectTo: 'home', pathMatch: 'full' },
+    { path: '', redirectTo: 'livetv', pathMatch: 'full' },
     { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
     { path: 'home', loadChildren: './pages/home/home.module#HomePageModule' },
     { path: 'about', loadChildren: './pages/about/about.module#AboutPageModule' },
@@ -1263,26 +1263,26 @@ var AppComponent = /** @class */ (function () {
         this.lastTimeBackPress = 0;
         this.timePeriodToExit = 2000;
         this.appPages = [
-            {
-                title: 'প্রথম পাতা',
-                url: '/home',
-                icon: 'home'
-            },
-            {
-                title: 'উৎস',
-                url: '/sources',
-                icon: 'cube'
-            },
-            {
-                title: 'লাইভ টিভি',
-                url: '/livetv',
-                icon: 'tv'
-            },
-            {
-                title: 'আমাদের সম্পর্কে',
-                url: '/about',
-                icon: 'md-information-circle'
-            }
+        // {
+        //   title: 'প্রথম পাতা',
+        //   url: '/home',
+        //   icon: 'home'
+        // },
+        // {
+        //   title: 'উৎস',
+        //   url: '/sources',
+        //   icon: 'cube'
+        // },
+        // {
+        //   title: 'লাইভ টিভি',
+        //   url: '/livetv',
+        //   icon: 'tv'
+        // },
+        // {
+        //   title: 'আমাদের সম্পর্কে',
+        //   url: '/about',
+        //   icon: 'md-information-circle'
+        // }
         ];
         this.initializeApp();
         // Initialize BackButton Eevent.

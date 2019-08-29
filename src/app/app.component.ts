@@ -24,26 +24,26 @@ export class AppComponent {
   @ViewChildren(IonRouterOutlet) routerOutlets: QueryList<IonRouterOutlet>;
 
   public appPages = [
-    {
-      title: 'প্রথম পাতা',
-      url: '/home',
-      icon: 'home'
-    },
-    {
-      title: 'উৎস',
-      url: '/sources',
-      icon: 'cube'
-    },
-    {
-      title: 'লাইভ টিভি',
-      url: '/livetv',
-      icon: 'tv'
-    },
-    {
-      title: 'আমাদের সম্পর্কে',
-      url: '/about',
-      icon: 'md-information-circle'
-    }
+    // {
+    //   title: 'প্রথম পাতা',
+    //   url: '/home',
+    //   icon: 'home'
+    // },
+    // {
+    //   title: 'উৎস',
+    //   url: '/sources',
+    //   icon: 'cube'
+    // },
+    // {
+    //   title: 'লাইভ টিভি',
+    //   url: '/livetv',
+    //   icon: 'tv'
+    // },
+    // {
+    //   title: 'আমাদের সম্পর্কে',
+    //   url: '/about',
+    //   icon: 'md-information-circle'
+    // }
   ];
 
   constructor(

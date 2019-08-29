@@ -24,6 +24,21 @@ export class LivetvPage implements OnInit {
       frame:'<iframe allowfullscreen="true" frameborder="0" height="500" id="iframe-embed" mozallowfullscreen="true" scrolling="no" src="https://play.voxzer.org/watch?v=gAAAAABdZpE7y1K-TTrl71hceLg0s-vLBh3ElKu2Tr3eKvAQbMWCnuZEqPq6FyHVCxzrZwL1Rxqmd3RpS7D-wRUJeV9y8uB1eWIH-zKuF_z8S11ToUCq0JZmPn7EgJVkmeEzVPi1yURegLpdZzVz9YRIh2xA7HCMAg==" webkitallowfullscreen="true" width="100%" __idm_frm__="136"></iframe>',
       imagehtml:'<img alt="Men in Black: International" class="thumb mli-thumb lazy" data-original="https://img.voxzer.org/poster/28803/men-in-black-international-28803-200.jpg" title="Men in Black: International" src="https://img.voxzer.org/poster/28803/men-in-black-international-28803-200.jpg" style="display: block;">'
     },
+    {
+       name:"Judge Mental Hay Kya",
+      frame:'<video id="my-video" class="video-js" controls preload="auto" width="100%" height="100%" data-setup="{}"><source src="http://ssd17.polosolo.net/MKV/mkv-bollywood/Judgementall Hai Kya 2019 preDvDRip.mkv" ></video>',
+      imagehtml:'<img alt="" src="https://m.media-amazon.com/images/M/MV5BZDBmZTZiYWUtMTQ3OS00NzA1LThjNjYtZmE3NzFhMzAzNDFmXkEyXkFqcGdeQXVyOTAzMTc2MjA@._V1_UY268_CR16,0,182,268_AL_.jpg">'
+    },
+    {
+       name:"Batla House",
+      frame:'<video id="my-video" class="video-js" controls preload="auto" width="100%" height="100%" data-setup="{}"><source src="http://bolly1.polosolo.net/mkv-bollywood/Batla House 2019 Pre DvD Rip HDFriday.mkv" ></video>',
+      imagehtml:'<img alt="" src="https://m.media-amazon.com/images/M/MV5BZmI4M2I1NWYtM2MwNS00NDJmLThhMmMtNDk1MzM4ZWQyMDZmXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_UY268_CR1,0,182,268_AL_.jpg">'
+    },
+    {
+       name:"Student of the Year 2 2019",
+      frame:'<video id="my-video" class="video-js" controls preload="auto" width="100%" height="100%" data-setup="{}"><source src="http://s24.hubfiles.club:182/d/hxh3t7eiurvhkjtugb5euvkhjegy6ozo2niddcssmytlngiozvpto7ye2f6yykwdwsc3yozd/Student%20of%20the%20Year%202%20(2019)%20%5BWorldfree4u.Wiki%5D%20%5BHindi%5D%20720p%20HDRip%20x264%20AC3%20ESub.mkv" ></video>',
+      imagehtml:'<img alt="" src="https://1.bp.blogspot.com/-Ag-GUouK_GI/XNeC4ignwOI/AAAAAAAAPuU/B1Ww9D-ad307-YFQbc2Y9Wq-A4YhpOg0wCLcBGAs/s1600/student.jpg">'
+    },    
   ];
 
   constructor(private iab: InAppBrowser, private router: Router,public modalController: ModalController) {

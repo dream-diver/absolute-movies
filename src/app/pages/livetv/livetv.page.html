@@ -20,11 +20,10 @@
   </p> -->
 
       <div class="container ">
-        
         <!-- ionic grid starts -->
         <ion-grid>
           <ion-row>
-            <ion-col col-6 *ngFor="let m of movies" >
+            <ion-col size="6" *ngFor="let m of movies" >
               <ion-card (click)="openModal(m.name,m.frame)" style="margin:auto">
                <ion-card-content style="padding: 0 0 12px;">
                  <div [innerHTML]="m.imagehtml"></div>
