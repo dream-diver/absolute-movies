@@ -24,13 +24,18 @@ import { OneSignal } from '@ionic-native/onesignal/ngx';
 import { AdMobFree } from '@ionic-native/admob-free/ngx';
 import { AdmobFreeService } from './services/admobfree.service';
 import { ExampleModalPageModule } from './pages/example-modal/example-modal.module';
-
+import { VideoPlayer } from '@ionic-native/video-player/ngx';
+import { StreamingMedia, StreamingVideoOptions } from '@ionic-native/streaming-media/ngx';
 
 
 @NgModule({
   declarations: [AppComponent, MomentPipe],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,HttpClientModule,IonicSwipeAllModule,ExampleModalPageModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,HttpClientModule,IonicSwipeAllModule,ExampleModalPageModule,
+   
+
+
+  ],
   providers: [
     StatusBar,
     SplashScreen,
@@ -41,7 +46,8 @@ import { ExampleModalPageModule } from './pages/example-modal/example-modal.modu
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     InAppBrowser,
     OneSignal,
-    Toast,
+    Toast,VideoPlayer,StreamingMedia
+
   ],
   bootstrap: [AppComponent]
 })

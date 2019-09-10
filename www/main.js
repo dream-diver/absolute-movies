@@ -1120,28 +1120,12 @@ webpackContext.id = "./node_modules/moment/locale sync recursive ^\\.\\/.*$";
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"./login/login.module": [
-		"./src/app/login/login.module.ts",
-		"login-login-module"
-	],
-	"./pages/about/about.module": [
-		"./src/app/pages/about/about.module.ts",
-		"pages-about-about-module"
-	],
 	"./pages/example-modal/example-modal.module": [
 		"./src/app/pages/example-modal/example-modal.module.ts"
-	],
-	"./pages/home/home.module": [
-		"./src/app/pages/home/home.module.ts",
-		"pages-home-home-module"
 	],
 	"./pages/livetv/livetv.module": [
 		"./src/app/pages/livetv/livetv.module.ts",
 		"pages-livetv-livetv-module"
-	],
-	"./pages/sources/sources.module": [
-		"./src/app/pages/sources/sources.module.ts",
-		"pages-sources-sources-module"
 	]
 };
 function webpackAsyncContext(req) {
@@ -1184,10 +1168,6 @@ __webpack_require__.r(__webpack_exports__);
 
 var routes = [
     { path: '', redirectTo: 'livetv', pathMatch: 'full' },
-    { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
-    { path: 'home', loadChildren: './pages/home/home.module#HomePageModule' },
-    { path: 'about', loadChildren: './pages/about/about.module#AboutPageModule' },
-    { path: 'sources', loadChildren: './pages/sources/sources.module#SourcesPageModule' },
     { path: 'livetv', loadChildren: './pages/livetv/livetv.module#LivetvPageModule' },
     { path: 'example-modal', loadChildren: './pages/example-modal/example-modal.module#ExampleModalPageModule' },
 ];
@@ -1216,7 +1196,7 @@ var AppRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-app>\r\n    <ion-split-pane>\r\n      <ion-menu type=\"overlay\">\r\n        <ion-content fullscreen>\r\n          <div class=\"sidemenu-ion-content\">\r\n            <ion-list class=\"sidemenu-ion-list\">\r\n  \r\n              <ion-item class=\"sidemenu-ion-list-item\">\r\n                <img class=\"sidemenu-logo\" src=\"../assets/img/logo-200.png\" height=\"75\">\r\n              </ion-item>\r\n  \r\n              <ion-menu-toggle auto-hide=\"false\" *ngFor=\"let p of appPages\">\r\n                <ion-item class=\"sidemenu-ion-list-item\" [routerDirection]=\"'root'\" [routerLink]=\"[p.url]\">\r\n                  <ion-icon slot=\"start\" color=\"light\" [name]=\"p.icon\"></ion-icon>\r\n                  <ion-label color=\"light\">\r\n                    {{p.title}}\r\n                  </ion-label>\r\n                </ion-item>\r\n              </ion-menu-toggle>\r\n            </ion-list>\r\n          </div>\r\n        </ion-content>\r\n        <ion-footer class=\"sidemenu-ion-footer\">\r\n            <ion-label class=\"copyright-text\" color=\"dark\">© Dream Diver 2019 | Version 1.1.0</ion-label>\r\n        </ion-footer>\r\n      </ion-menu>\r\n      <ion-router-outlet main></ion-router-outlet>\r\n    </ion-split-pane>\r\n  </ion-app>"
+module.exports = "<ion-app>\r\n    <ion-split-pane>\r\n<!--       <ion-menu type=\"overlay\">\r\n        <ion-content fullscreen>\r\n          <div class=\"sidemenu-ion-content\">\r\n            <ion-list class=\"sidemenu-ion-list\">\r\n  \r\n              <ion-item class=\"sidemenu-ion-list-item\">\r\n                <img class=\"sidemenu-logo\" src=\"../assets/img/logo-200.png\" height=\"75\">\r\n              </ion-item>\r\n  \r\n              <ion-menu-toggle auto-hide=\"false\" *ngFor=\"let p of appPages\">\r\n                <ion-item class=\"sidemenu-ion-list-item\" [routerDirection]=\"'root'\" [routerLink]=\"[p.url]\">\r\n                  <ion-icon slot=\"start\" color=\"light\" [name]=\"p.icon\"></ion-icon>\r\n                  <ion-label color=\"light\">\r\n                    {{p.title}}\r\n                  </ion-label>\r\n                </ion-item>\r\n              </ion-menu-toggle>\r\n            </ion-list>\r\n          </div>\r\n        </ion-content>\r\n        <ion-footer class=\"sidemenu-ion-footer\">\r\n            <ion-label class=\"copyright-text\" color=\"dark\">© Dream Diver 2019 | Version 1.1.0</ion-label>\r\n        </ion-footer>\r\n      </ion-menu> -->\r\n      <ion-router-outlet main></ion-router-outlet>\r\n    </ion-split-pane>\r\n  </ion-app>"
 
 /***/ }),
 
@@ -1489,6 +1469,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_native_admob_free_ngx__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @ionic-native/admob-free/ngx */ "./node_modules/@ionic-native/admob-free/ngx/index.js");
 /* harmony import */ var _services_admobfree_service__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./services/admobfree.service */ "./src/app/services/admobfree.service.ts");
 /* harmony import */ var _pages_example_modal_example_modal_module__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./pages/example-modal/example-modal.module */ "./src/app/pages/example-modal/example-modal.module.ts");
+/* harmony import */ var _ionic_native_video_player_ngx__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @ionic-native/video-player/ngx */ "./node_modules/@ionic-native/video-player/ngx/index.js");
+/* harmony import */ var _ionic_native_streaming_media_ngx__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! @ionic-native/streaming-media/ngx */ "./node_modules/@ionic-native/streaming-media/ngx/index.js");
 
 
 
@@ -1510,6 +1492,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -1517,7 +1501,8 @@ var AppModule = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
             declarations: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"], _moment_pipe__WEBPACK_IMPORTED_MODULE_12__["MomentPipe"]],
             entryComponents: [],
-            imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"].forRoot(), _app_routing_module__WEBPACK_IMPORTED_MODULE_9__["AppRoutingModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_11__["HttpClientModule"], ionic_swipe_all__WEBPACK_IMPORTED_MODULE_15__["IonicSwipeAllModule"], _pages_example_modal_example_modal_module__WEBPACK_IMPORTED_MODULE_19__["ExampleModalPageModule"]],
+            imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"].forRoot(), _app_routing_module__WEBPACK_IMPORTED_MODULE_9__["AppRoutingModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_11__["HttpClientModule"], ionic_swipe_all__WEBPACK_IMPORTED_MODULE_15__["IonicSwipeAllModule"], _pages_example_modal_example_modal_module__WEBPACK_IMPORTED_MODULE_19__["ExampleModalPageModule"],
+            ],
             providers: [
                 _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_6__["StatusBar"],
                 _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_5__["SplashScreen"],
@@ -1528,7 +1513,7 @@ var AppModule = /** @class */ (function () {
                 { provide: _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouteReuseStrategy"], useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicRouteStrategy"] },
                 _ionic_native_in_app_browser_ngx__WEBPACK_IMPORTED_MODULE_10__["InAppBrowser"],
                 _ionic_native_onesignal_ngx__WEBPACK_IMPORTED_MODULE_16__["OneSignal"],
-                _ionic_native_toast_ngx__WEBPACK_IMPORTED_MODULE_7__["Toast"],
+                _ionic_native_toast_ngx__WEBPACK_IMPORTED_MODULE_7__["Toast"], _ionic_native_video_player_ngx__WEBPACK_IMPORTED_MODULE_20__["VideoPlayer"], _ionic_native_streaming_media_ngx__WEBPACK_IMPORTED_MODULE_21__["StreamingMedia"]
             ],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"]]
         })
@@ -1661,19 +1646,44 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _ionic_native_video_player_ngx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic-native/video-player/ngx */ "./node_modules/@ionic-native/video-player/ngx/index.js");
+/* harmony import */ var _ionic_native_streaming_media_ngx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic-native/streaming-media/ngx */ "./node_modules/@ionic-native/streaming-media/ngx/index.js");
+
+
 
 
 
 var ExampleModalPage = /** @class */ (function () {
-    function ExampleModalPage(modalController, navParams) {
+    function ExampleModalPage(modalController, navParams, videoPlayer, streamingMedia) {
         this.modalController = modalController;
         this.navParams = navParams;
+        this.videoPlayer = videoPlayer;
+        this.streamingMedia = streamingMedia;
     }
+    ExampleModalPage.prototype.playVideo = function (frame) {
+        this.videoPlayer.play(frame).then(function () {
+            console.log('video completed');
+        }).catch(function (err) {
+            console.log(err);
+        });
+    };
+    ExampleModalPage.prototype.stopPlayingVideo = function () {
+        this.videoPlayer.close();
+    };
     ExampleModalPage.prototype.ngOnInit = function () {
         console.table(this.navParams);
         this.name = this.navParams.data.name;
         this.frame = this.navParams.data.frame;
-        document.getElementById("frame").innerHTML = this.frame;
+        //this.playVideo(this.frame);
+        // document.getElementById("frame").innerHTML = this.frame;
+        var options = {
+            successCallback: function () { console.log('Video played'); },
+            errorCallback: function (e) { console.log('Error streaming'); },
+            orientation: 'landscape',
+            shouldAutoClose: true,
+            controls: true
+        };
+        this.streamingMedia.playVideo(this.frame, options);
     };
     ExampleModalPage.prototype.closeModal = function () {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
@@ -1696,8 +1706,8 @@ var ExampleModalPage = /** @class */ (function () {
             template: __webpack_require__(/*! ./example-modal.page.html */ "./src/app/pages/example-modal/example-modal.page.html"),
             styles: [__webpack_require__(/*! ./example-modal.page.scss */ "./src/app/pages/example-modal/example-modal.page.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ModalController"],
-            _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavParams"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ModalController"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavParams"],
+            _ionic_native_video_player_ngx__WEBPACK_IMPORTED_MODULE_3__["VideoPlayer"], _ionic_native_streaming_media_ngx__WEBPACK_IMPORTED_MODULE_4__["StreamingMedia"]])
     ], ExampleModalPage);
     return ExampleModalPage;
 }());

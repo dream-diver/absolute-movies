@@ -117,6 +117,14 @@ module.exports = [
     ]
   },
   {
+    "id": "cordova-plugin-streaming-media.StreamingMedia",
+    "file": "plugins/cordova-plugin-streaming-media/www/StreamingMedia.js",
+    "pluginId": "cordova-plugin-streaming-media",
+    "clobbers": [
+      "streamingMedia"
+    ]
+  },
+  {
     "id": "cordova-plugin-x-toast.Toast",
     "file": "plugins/cordova-plugin-x-toast/www/Toast.js",
     "pluginId": "cordova-plugin-x-toast",
@@ -149,6 +157,7 @@ module.exports.metadata =
   "cordova-plugin-nativegeocoder": "3.2.2",
   "cordova-plugin-splashscreen": "5.0.2",
   "cordova-plugin-statusbar": "2.4.2",
+  "cordova-plugin-streaming-media": "2.2.0",
   "cordova-plugin-whitelist": "1.3.3",
   "cordova-plugin-x-toast": "2.7.2",
   "onesignal-cordova-plugin": "2.5.0"

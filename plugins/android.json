@@ -7,6 +7,9 @@
     "files": {}
   },
   "installed_plugins": {
+    "com.moust.cordova.videoplayer": {
+      "PACKAGE_NAME": "app.dreamdiver.shobkhobor"
+    },
     "cordova-plugin-admob-free": {
       "ADMOB_APP_ID": "ca-app-pub-2387490687776151~80XXXXXXX9",
       "PACKAGE_NAME": "app.dreamdiver.shobkhobor"
@@ -39,6 +42,9 @@
     "cordova-plugin-statusbar": {
       "PACKAGE_NAME": "app.dreamdiver.shobkhobor"
     },
+    "cordova-plugin-streaming-media": {
+      "PACKAGE_NAME": "app.dreamdiver.shobkhobor"
+    },
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "app.dreamdiver.shobkhobor"
     },
@@ -50,9 +56,6 @@
     }
   },
   "dependent_plugins": {
-    "com.moust.cordova.videoplayer": {
-      "PACKAGE_NAME": "app.dreamdiver.shobkhobor"
-    },
     "cordova-admob-sdk": {
       "PLAY_SERVICES_VERSION": "11.0.4",
       "PACKAGE_NAME": "app.dreamdiver.shobkhobor"
