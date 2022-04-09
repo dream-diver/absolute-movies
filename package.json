@@ -54,7 +54,7 @@
     "hammerjs": "^2.0.8",
     "ionic-openweathermap": "^0.1.3",
     "ionic-swipe-all": "^2.0.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "onesignal-cordova-plugin": "^2.5.0",
     "rxjs": "~6.5.1",
     "rxjs-compat": "^6.5.2",
